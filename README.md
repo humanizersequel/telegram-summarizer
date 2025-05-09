@@ -4,17 +4,6 @@ Okay, here's a README file for the script.
 
 This Python script processes exported Telegram chat logs (in JSON format) to extract key insights using Anthropic's Claude API and generate a comprehensive, readable report. It's designed to handle long conversations by processing messages in chunks, maintaining a rolling summary of insights, and saving its progress, allowing for incremental updates.
 
-## Features
-
-* **Incremental Processing:** Processes only new messages from chat exports since the last run.
-* **Chunk-based Summarization:** Breaks down long chats into manageable chunks for the LLM.
-* **Rolling Context:** Provides the LLM with a summary of previous insights when processing new chunks, allowing for more context-aware summaries.
-* **Robust API Interaction:** Implements exponential backoff and retries for transient API errors (e.g., server overload).
-* **Token Management:** Includes logic to compact collections of insights if they grow too large for the LLM's context window.
-* **Multi-Stage Final Report Generation:** If the total collection of insights is very large, it performs an intermediate summarization step before generating the final report to ensure it fits within model limits and produces a coherent output.
-* **Formatted Text Reports:** Generates a final, human-readable report in a `.txt` file, separate from the JSON state file.
-* **Customizable Prompts:** Allows easy modification of the instructions given to the LLM for different stages of processing.
-* **Stateful:** Saves its progress (last processed message, individual insights, report metadata) in a JSON state file per chat.
 
 ## Prerequisites
 
